@@ -1,6 +1,5 @@
 package timer;
 
-import java.awt.geom.Ellipse2D;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
