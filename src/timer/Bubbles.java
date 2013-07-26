@@ -9,6 +9,20 @@ public class Bubbles extends JFrame {
         initUI();
     }
 
+    private void initUI() {
+
+        setTitle("Bubbles");
+
+        int w = 450;
+        int h = 450;
+        int bubblesNum = 40;
+
+        add(new Surface(w, h, bubblesNum));
+        setSize(w, h);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -17,19 +31,5 @@ public class Bubbles extends JFrame {
                 b.setVisible(true);
             }
         });
-    }
-
-    private void initUI() {
-        
-        setTitle("Bubbles");
-
-        int w = 450;
-        int h = 450;
-
-        add(new Surface(w, h));
-
-        setSize(w, h);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
     }
 }

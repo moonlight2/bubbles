@@ -19,18 +19,20 @@ public class Surface extends JPanel implements ActionListener {
     private double maxSize;
     private int height;
     private int width;
-    public static int BUBBLES_NUM = 35;
+    private int bubblesNum;
     private Color colors[] = {
         Color.blue, Color.cyan, Color.green,
         Color.magenta, Color.orange, Color.pink,
         Color.red, Color.yellow, Color.lightGray, Color.white
     };
 
-    public Surface(int height, int width) {
+    public Surface(int height, int width, int bubblesNum) {
 
+        this.bubblesNum = bubblesNum;
         this.height = height;
         this.width = width;
-        maxSize = width / 10;
+        this.maxSize = width / 10;
+        
         initSurface();
         initElipses();
         initTimer();
@@ -43,9 +45,9 @@ public class Surface extends JPanel implements ActionListener {
         elipse.setSize(size);
         elipse.setStroke(1.0f);
         /* Generate random position inside surface */
-        double new_x = Math.random() * (x - (maxSize / 2));
-        double new_y = Math.random() * (y - (maxSize / 2));
-        elipse.getElipse().setFrame(new_x, new_y, size, size);
+        double newX = Math.random() * (x - (maxSize / 2));
+        double newY = Math.random() * (y - (maxSize / 2));
+        elipse.getElipse().setFrame(newX, newY, size, size);
     }
 
     private void doStep(int w, int h) {
@@ -97,6 +99,7 @@ public class Surface extends JPanel implements ActionListener {
 
     @Override
     public void paintComponent(Graphics g) {
+        
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -123,6 +126,6 @@ public class Surface extends JPanel implements ActionListener {
 
     private void initSurface() {
         setBackground(Color.BLACK);
-        elipses = new MyElipse[BUBBLES_NUM];
+        elipses = new MyElipse[bubblesNum];
     }
 }
